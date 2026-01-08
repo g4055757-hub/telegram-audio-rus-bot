@@ -56,4 +56,6 @@ def handle_voice(message):
         )
 
 
-bot.polling()
+print("Bot started")
+bot.infinity_polling(skip_pending=True)
+
