@@ -1,10 +1,10 @@
+import os
 import telebot
 
-BOT_TOKEN = "8407285717:AAETujurb4JgYd33i990rVFUx_lbArmgzg0"
-ADMIN_ID = 463942368  # ты
-STUDENT_ID = None     # мы его поймаем автоматически
+TOKEN = os.getenv("BOT_TOKEN")
+ADMIN_ID = int(os.getenv("ADMIN_ID"))
 
-bot = telebot.TeleBot(BOT_TOKEN)
+bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
@@ -54,5 +54,6 @@ def handle_voice(message):
             "Аудио получено ✅\n"
             "Продолжай тренировку."
         )
+
 
 bot.polling()
